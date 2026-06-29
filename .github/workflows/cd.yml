@@ -25,3 +25,12 @@ jobs:
       - name: build app
         run: npm build
       
+      - name: Upload app to https
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.PASS }}
+          source: "out"
+          target: "/var/www/httpsdocs/"
+      
