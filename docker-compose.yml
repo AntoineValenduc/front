@@ -2,9 +2,9 @@ services :
   node :
     container_name: node
     image: node:26-alpine3.24
-    working_dir: /front
+    working_dir: /front/front
     volumes:
-      - ./:/front
+      - ./front:/front/front
     ports :
       - "3000:3000"
     tty : true # = command: "sleep infinity"
