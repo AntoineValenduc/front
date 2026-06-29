@@ -45,3 +45,11 @@ jobs:
 
       - name: build and push on ghcr
         uses: docker/build-push-action@v7
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=registry,ref=${{ env.IMAGE-NAME }}:cache
+          cache-to: type=registry,ref=${{ env.IMAGE-NAME }}:cache,mode=max

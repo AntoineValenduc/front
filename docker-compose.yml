@@ -1,4 +1,5 @@
 services :
+
   node :
     container_name: node
     image: node:26-alpine3.24
