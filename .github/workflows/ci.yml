@@ -14,14 +14,18 @@ on:
 jobs: 
   build_docker:
     runs-on: ubuntu-latest
+
     steps:
       - name: install checkout
         uses: actions/checkout@v7
+
       - name: check version docker
         run:
           docker -v
           docker compose version
+
       - name: docker up
         run: docker compose up -d
+        
       - name: install dependencies
         run: docker compose exec -T -w /front/front node npm ci

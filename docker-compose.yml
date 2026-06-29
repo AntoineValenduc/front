@@ -4,7 +4,7 @@ services :
     image: node:26-alpine3.24
     working_dir: /front
     volumes:
-      - ./:/front
+      - ./front
     ports :
       - "3000:3000"
     tty : true # = command: "sleep infinity"
