@@ -36,8 +36,8 @@ yarn-error.log*
 .pnpm-debug.log*
 
 # Env files
-.env*
-front/.env*
+# .env*
+# front/.env*
 
 # Vercel
 front/.vercel/
