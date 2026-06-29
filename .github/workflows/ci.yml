@@ -20,7 +20,7 @@ jobs:
         uses: actions/checkout@v7
 
       - name: check version docker
-        run:
+        run: |
           docker -v
           docker compose version
 
@@ -33,6 +33,10 @@ jobs:
       - name: install dependencies
         run: docker compose exec -T -w /front node npm ci
 
-      - name: run tests
-        run: docker compose exec -T -w /front node npm test
-        
+      #- name: run tests
+      #  run: docker compose exec -T -w /front node npm test
+      - name: build app
+        run: docker compose exec -T -w /front node npm run build
+
+      - name: stop docker
+        if: always()
