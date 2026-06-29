@@ -28,7 +28,7 @@ services :
 
   redis :
     container_name: redis
-    image: redis:8-alpine3.24
+    image: redis:7.4-alpine
     ports:
       - "6379:6379"
     volumes:
