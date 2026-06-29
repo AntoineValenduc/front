@@ -40,3 +40,4 @@ jobs:
 
       - name: stop docker
         if: always()
+        run: docker compose down
