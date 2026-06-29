@@ -31,4 +31,8 @@ jobs:
         run: docker compose exec -T -w /front/front node ls -la
 
       - name: install dependencies
-        run: docker compose exec -T -w /front/front node npm ci
+        run: docker compose exec -T -w /front node npm ci
+
+      - name: run tests
+        run: docker compose exec -T -w /front node npm test
+        
