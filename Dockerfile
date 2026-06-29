@@ -2,7 +2,7 @@ FROM node:26-alpine3.24 AS deps
 
 WORKDIR /front
 
-COPY /front/package.json /front/package-lock.json ./
+COPY front/package.json front/package-lock.json ./
 
 RUN npm ci
 
@@ -28,7 +28,7 @@ ENV MODE_ENV=production
 
 ENV PORT=3000
 
-COPY /front/package.json /front/package-lock.json ./
+COPY front/package.json front/package-lock.json ./
 
 RUN npm ci --omit=dev
 
