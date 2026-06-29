@@ -16,10 +16,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: install checkout
-        uses: docker/checkout@v7
+        uses: actions/checkout@v7
       - name: check version docker
         run:
-          docker --version
+          docker -v
           docker compose version
       - name: docker up
-        run: docker compose up
+        run: docker compose up -d
+      - name: install dependencies
+        run: docker compose exec node npm install
