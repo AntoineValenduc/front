@@ -1,0 +1,27 @@
+name: CD
+
+on: 
+  push:
+    branches:
+      - prod
+
+jobs:
+  deployed:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: install checkout
+        uses: actions/checkout@v7
+
+      - name: install node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 26
+          cache: "npm"
+      
+      - name: install dependencies
+        run: npm install
+
+      - name: build app
+        run: npm build
+      
