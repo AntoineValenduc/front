@@ -1,36 +1,36 @@
-# name: CD
+ name: CD
 
-# on: 
-#   push:
-#     branches:
-#       - prodddddd
+ on: 
+   push:
+     branches:
+       - prodddddd
 
-# jobs:
-#   deployed:
-#     runs-on: ubuntu-latest
+ jobs:
+   deployed:
+     runs-on: ubuntu-latest
 
-#     steps:
-#       - name: install checkout
-#         uses: actions/checkout@v7
+     steps:
+       - name: install checkout
+         uses: actions/checkout@v7
 
-#       - name: install node
-#         uses: actions/setup-node@v4
-#         with:
-#           node-version: 26
-#           cache: "npm"
+       - name: install node
+         uses: actions/setup-node@v4
+         with:
+           node-version: 26
+           cache: "npm"
       
-#       - name: install dependencies
-#         run: npm install
+       - name: install dependencies
+         run: npm install
 
-#       - name: build app
-#         run: npm run build
+       - name: build app
+         run: npm run build
       
-#       - name: Upload app to https
-#         uses: appleboy/scp-action@v0.1.7
-#         with:
-#           host: ${{ secrets.HOST }}
-#           username: ${{ secrets.USER }}
-#           key: ${{ secrets.PASS }}
-#           source: "out"
-#           target: "/var/www/httpsdocs/"
+       - name: Upload app to https
+         uses: appleboy/scp-action@v0.1.7
+         with:
+           host: ${{ secrets.HOST }}
+           username: ${{ secrets.USER }}
+           key: ${{ secrets.PASS }}
+           source: "out"
+           target: "/var/www/httpsdocs/"
       
